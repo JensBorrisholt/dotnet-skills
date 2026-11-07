@@ -33,21 +33,13 @@ Multi-targeted projects use the lowest version. Nothing is added to the project:
 
 ## Install
 
-### As a plugin (for a team)
-
 ```
 /plugin marketplace add JensBorrisholt/dotnet-skills
 /plugin install dotnet-skills@dotnet-skills
 ```
 
-Plugin skills are namespaced, for example `dotnet-skills:csharp-13`.
-
-### Personal install (just you)
-
-Copy the folders in `skills/` into `~/.claude/skills/` (on Windows
-`%USERPROFILE%\.claude\skills\`), so that each folder contains its own `SKILL.md`.
-
-Use **one** of the two. Having both installed gives Claude duplicate skills to choose from.
+Plugin skills are namespaced, for example `dotnet-skills:csharp-13`. To get later changes, run
+`/plugin marketplace update dotnet-skills`.
 
 ## Layout
 
