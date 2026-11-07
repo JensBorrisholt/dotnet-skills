@@ -69,9 +69,3 @@ The version skills are written from the Microsoft Learn pages "What's new in C# 
 breaking changes", linked at the bottom of each skill. Where a page gives no sample or detail, the
 skill says so rather than inventing syntax. C# 15 and its memory-safety model were still
 prerelease when this was written, so check Learn if a feature behaves differently.
-
-## Adding a version
-
-1. Copy the closest `skills/csharp-NN` folder.
-2. Rewrite its features, its "Not available" table and its sources.
-3. Add the target framework to the table in `skills/csharp/SKILL.md` and to this README.

@@ -35,6 +35,9 @@ lists these features under "Not available" with the older alternative.
 1. **Check the language version.** Look at the project's `TargetFramework` and `LangVersion`.
    `net11.0` without a `LangVersion` gives C# 15. To see the active version, temporarily add
    `#error version`: the compiler reports CS8304 with the compiler and language versions.
+   An existing `LangVersion` of `latest` means the newest C# the installed SDK supports, and an
+   existing `preview` adds features still under development (section 7). Use preview features
+   only when the user asks for them or the project already uses them.
 2. **Don't set `<LangVersion>latest</LangVersion>`.** Microsoft warns against it because it varies
    by machine. Using a language version newer than the target framework's default is unsupported.
    Prefer moving the TFM to `net11.0`.

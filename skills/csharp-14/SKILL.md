@@ -22,7 +22,12 @@ C# 14 ships with the .NET 10 SDK and Visual Studio 2026, and is the default lang
 ## 0. Before using a C# 14 feature
 
 1. Confirm `TargetFramework` is `net10.0` and `LangVersion` is unset or `14`. Don't set
-   `LangVersion` to `latest`.
+   `LangVersion` to `latest` yourself.
+   - An existing `latest` means the newest C# the installed SDK supports. Another machine's SDK
+     may give a newer version. Stay with C# 14 syntax anyway.
+   - An existing `preview` enables in-progress features of the installed compiler, which on a
+     newer SDK includes C# 15 features. Use preview features only when the user asks for them or
+     the project already uses them.
 2. Using C# 14 while targeting something older than net10.0 is unsupported. For example, on older
    targets `array.Reverse()` can bind to `MemoryExtensions.Reverse` (in place, returns `void`) and
    not to LINQ.

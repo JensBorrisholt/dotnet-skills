@@ -30,7 +30,12 @@ available.
 ## 0. Before using a C# 13 feature
 
 1. Confirm `TargetFramework` is `net9.0` and `LangVersion` is unset or `13`. Don't set
-   `LangVersion` to `latest`.
+   `LangVersion` to `latest` yourself.
+   - An existing `latest` means the newest C# the installed SDK supports. Another machine's SDK
+     may give a newer version. Stay with C# 13 syntax anyway.
+   - An existing `preview` enables in-progress features of the installed compiler. For C# 13 that
+     is `field` (section 10). Use preview features only when the user asks for them or the
+     project already uses them.
 2. `System.Threading.Lock` is a .NET 9 runtime type. Code that uses it cannot run on net8.0.
 3. Span-based `params` and `allows ref struct` with BCL types also need the matching .NET 9
    libraries.

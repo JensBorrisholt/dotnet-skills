@@ -16,10 +16,18 @@ Check these in order, and stop at the first that answers:
 1. `<LangVersion>` in the `.csproj`, then in `Directory.Build.props` or `Directory.Build.targets`
    in any parent folder.
    - A number (`12`, `13`, `14`, `15`) is the answer.
-   - `latest`, `default`, `preview` or `latestMajor` do **not** give a number. Treat them as
-     "unknown, go to step 3" and run `dotnet --version`: `latest` is the newest version the
-     installed SDK supports, and `preview` is newer still. Report that to the user instead of
-     guessing.
+   - `default` means the framework's default. Go to step 2.
+   - `latest` and `latestMajor` mean the newest released C# that the **installed SDK** supports,
+     so the result depends on the machine. Run `dotnet --version` and map the SDK's major version
+     to a C# version: SDK 8 gives 12, SDK 9 gives 13, SDK 10 gives 14, SDK 11 gives 15. Then
+     compare with the framework's default from step 2. If the SDK's version is higher than the
+     framework's default, the project is outside what Microsoft supports and may build
+     differently on another machine, so **write for the lower version** and tell the user in
+     one line.
+   - `preview` means the SDK's released version **plus** features still under development. Use
+     the skill for the SDK's major version, as above. Use a preview feature only if the user
+     asks for it or the project already uses it, because preview features can change or
+     disappear. Tell the user the project uses `preview`.
 2. `<TargetFramework>` or `<TargetFrameworks>`, in the same files. Use this table:
 
 | TargetFramework | Default C# | Skill to load |

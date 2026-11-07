@@ -34,7 +34,11 @@ namespaces, generic math and so on) are all available.
 ## 0. Before using a C# 12 feature
 
 1. Confirm `TargetFramework` is `net8.0` and `LangVersion` is unset or `12`. Don't set
-   `LangVersion` to `latest`.
+   `LangVersion` to `latest` yourself.
+   - An existing `latest` means the newest C# the installed SDK supports. Another machine's SDK
+     may give a newer version. Stay with C# 12 syntax anyway.
+   - An existing `preview` enables in-progress features of the installed compiler. Use preview
+     features only when the user asks for them or the project already uses them.
 2. Interceptors need an opt-in property (section 8) and are preview.
 
 ## 1. Primary constructors
