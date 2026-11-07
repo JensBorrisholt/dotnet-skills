@@ -130,10 +130,39 @@ a modifier, so a type named `scoped` needs `@scoped`.
 
 ## 8. User-defined compound assignment operators
 
-A type can define `+=`, `-=` and so on directly, which lets it update in place instead of
-allocating a new value. The Learn page doesn't give a sample, so check the spec before relying
-on exact syntax:
-https://learn.microsoft.com/dotnet/csharp/language-reference/proposals/csharp-14.0/user-defined-compound-assignment
+A type can define `+=`, `-=` and so on directly, so it updates in place instead of allocating a
+new value for `x = x + y`. The Learn "what's new" page has no sample. The syntax below comes from
+the feature spec and a blog post written during the preview, so check the shipped compiler.
+
+```csharp
+public class Backpack(float capacity)
+{
+    public void operator +=(Item item) => Add(item);     // instance, returns void, one parameter
+}
+
+public class Counter
+{
+    public int Value;
+    public void operator ++() => Value++;                // instance increment: no parameters, void
+}
+```
+
+- Compound operators are `+=`, `-=`, `*=`, `/=`, `%=`, `&=`, `|=`, `^=`, `<<=`, `>>=` and `>>>=`.
+  The first four can be `checked`. `++` and `--` can be too.
+- They must be `public` and **not** `static`, and they return `void`. The static
+  `operator ++(C x)` form still exists.
+- `operator checked X` requires a regular `operator X` on the same type.
+- The compiler does **not** check that `+=` behaves like `+`. Keep them consistent yourself,
+  because a plain `x + y` still calls the binary operator.
+- `x op= y` uses the compound operator only when `x` is a variable, a matching overload exists and
+  the language version is 14 or later. Otherwise it falls back to `x = x op y`.
+- Reference types are mutated in place, so every other reference sees the change. For a value type
+  with the result used, the compiler works on a copy and assigns it back.
+- Postfix `x++` with the result used calls the static `++`. The instance operator is used when
+  the result is discarded, and for prefix `++x`.
+- Not CLS-compliant as specified, so other .NET languages may not see them as operators.
+
+Spec: https://learn.microsoft.com/dotnet/csharp/language-reference/proposals/csharp-14.0/user-defined-compound-assignment
 
 ## 9. Compiler breaking changes when moving to the .NET 10 SDK
 
