@@ -38,8 +38,7 @@ Multi-targeted projects use the lowest version. Nothing is added to the project:
 /plugin install dotnet-skills@dotnet-skills
 ```
 
-Plugin skills are namespaced, for example `dotnet-skills:csharp-13`. To get later changes, run
-`/plugin marketplace update dotnet-skills`.
+To get later changes, run `/plugin marketplace update dotnet-skills`.
 
 ## Layout
 
