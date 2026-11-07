@@ -1,0 +1,9 @@
+{
+  "name": "dotnet-skills",
+  "description": "C# language-version skills (C# 12 to 15) with a router that picks the right one from the project's TargetFramework and LangVersion.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Jens Borrisholt"
+  },
+  "keywords": ["csharp", "dotnet", "language-version"]
+}
