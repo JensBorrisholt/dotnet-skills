@@ -36,12 +36,11 @@ Multi-targeted projects use the lowest version. Nothing is added to the project:
 ### As a plugin (for a team)
 
 ```
-/plugin marketplace add <owner>/dotnet-skills
+/plugin marketplace add JensBorrisholt/dotnet-skills
 /plugin install dotnet-skills@dotnet-skills
 ```
 
-Replace `<owner>` with the GitHub account or organization that hosts this repository. Plugin skills
-are namespaced, for example `dotnet-skills:csharp-13`.
+Plugin skills are namespaced, for example `dotnet-skills:csharp-13`.
 
 ### Personal install (just you)
 
