@@ -33,12 +33,24 @@ Multi-targeted projects use the lowest version. Nothing is added to the project:
 
 ## Install
 
+### CLI
+
 ```
 /plugin marketplace add JensBorrisholt/dotnet-skills
 /plugin install dotnet-skills@dotnet-skills
 ```
 
 To get later changes, run `/plugin marketplace update dotnet-skills`.
+
+### Desktop app (GUI)
+
+Paste this into the chat in the Code tab. Claude runs it for you:
+
+```
+/plugin marketplace add JensBorrisholt/dotnet-skills
+```
+
+To get later changes, paste `/plugin marketplace update dotnet-skills`.
 
 ## Layout
 
